@@ -1,9 +1,9 @@
 package com.nocodenolife.ecommerce.config;
 
-import com.nocodenolife.ecommerce.entity.Country;
-import com.nocodenolife.ecommerce.entity.Product;
-import com.nocodenolife.ecommerce.entity.ProductCategory;
-import com.nocodenolife.ecommerce.entity.State;
+import com.nocodenolife.ecommerce.dto.entity.Country;
+import com.nocodenolife.ecommerce.dto.entity.Product;
+import com.nocodenolife.ecommerce.dto.entity.ProductCategory;
+import com.nocodenolife.ecommerce.dto.entity.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;

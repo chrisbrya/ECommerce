@@ -1,4 +1,4 @@
-package com.nocodenolife.ecommerce.entity;
+package com.nocodenolife.ecommerce.dto.entity;
 
 import lombok.Getter;
 import lombok.Setter;

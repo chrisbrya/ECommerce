@@ -1,4 +1,4 @@
-package com.nocodenolife.ecommerce.entity;
+package com.nocodenolife.ecommerce.dto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class Country {
     // one-to-many with states
     @OneToMany(mappedBy = "country")
     @JsonIgnore // makes it where the states do not populate with the country we only retrieve country
-    private List<State> state;
+    private List<State> states;
 
 
 }

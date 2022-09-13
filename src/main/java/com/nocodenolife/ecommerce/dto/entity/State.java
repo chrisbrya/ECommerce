@@ -1,4 +1,4 @@
-package com.nocodenolife.ecommerce.entity;
+package com.nocodenolife.ecommerce.dto.entity;
 
 import lombok.Data;
 
@@ -13,6 +13,7 @@ public class State {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
+
     @Column(name="name")
     private String name;
     @ManyToOne
