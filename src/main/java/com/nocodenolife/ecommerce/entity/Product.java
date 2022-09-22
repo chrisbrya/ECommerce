@@ -1,4 +1,4 @@
-package com.nocodenolife.ecommerce.dto.entity;
+package com.nocodenolife.ecommerce.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

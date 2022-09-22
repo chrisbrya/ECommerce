@@ -1,9 +1,9 @@
 package com.nocodenolife.ecommerce.dto;
 
-import com.nocodenolife.ecommerce.dto.entity.Address;
-import com.nocodenolife.ecommerce.dto.entity.Customer;
-import com.nocodenolife.ecommerce.dto.entity.Order;
-import com.nocodenolife.ecommerce.dto.entity.OrderItem;
+import com.nocodenolife.ecommerce.entity.Address;
+import com.nocodenolife.ecommerce.entity.Customer;
+import com.nocodenolife.ecommerce.entity.Order;
+import com.nocodenolife.ecommerce.entity.OrderItem;
 import lombok.Data;
 
 import java.util.Set;

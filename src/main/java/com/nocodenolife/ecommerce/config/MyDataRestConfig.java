@@ -1,10 +1,8 @@
 package com.nocodenolife.ecommerce.config;
 
-import com.nocodenolife.ecommerce.dto.entity.Country;
-import com.nocodenolife.ecommerce.dto.entity.Product;
-import com.nocodenolife.ecommerce.dto.entity.ProductCategory;
-import com.nocodenolife.ecommerce.dto.entity.State;
+import com.nocodenolife.ecommerce.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -20,6 +18,9 @@ import java.util.Set;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
+    @Value("${allowed.origins}")
+    private String[] theAllowedOrigins;
+
     private EntityManager entityManager;
 
     @Autowired
@@ -29,7 +30,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        HttpMethod[] theUnsupportedActions = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT};
+        HttpMethod[] theUnsupportedActions = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT, HttpMethod.PATCH};
 
         //disable HTTP methods for Product: Put, POST, DELETE
         disableHttpMethod(Product.class, config, theUnsupportedActions);
@@ -39,8 +40,16 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethod(Country.class, config, theUnsupportedActions);
         //disable HTTP methods for StateCategory: Put, POST, DELETE
         disableHttpMethod(State.class, config, theUnsupportedActions);
-        // call an internal helper method
+        //disable HTTP methods for StateCategory: Put, POST, DELETE
+
+        disableHttpMethod(Order.class, config, theUnsupportedActions);
+        //disable HTTP methods for StateCategory: Put, POST, DELETE
+
         exposeIds(config);
+        // call an internal helper method
+
+        // configure cors mapping
+        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
     }
 
     private void disableHttpMethod(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {

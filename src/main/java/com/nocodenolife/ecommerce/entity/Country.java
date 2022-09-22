@@ -1,4 +1,4 @@
-package com.nocodenolife.ecommerce.dto.entity;
+package com.nocodenolife.ecommerce.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
